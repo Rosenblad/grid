@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blurbs</title>
+	<style>
+	* {
+		box-sizing: border-box;
+	}
+
+	html {
+		background-color: black;
+		height: 100%;
+	}
+
+	body {
+		margin: 0;
+		color: #fff;
+		-webkit-font-smoothing: antialiased;
+		font-family: 'Roboto', sans-serif;
+		height: 100%;
+	}
+
+	h1 {
+		font-size: 40px;
+		margin: 0;
+		text-transform: uppercase;
+		margin-bottom: 20px;
+	}
+
+	.intro {
+		background-color: gray;
+		padding-left: 35%;
+		padding-top: 5%;
+		height: 100%;
+	}
+
+	.blurb {
+		background-color: red;
+	}
+
+	.info {
+		position: absolute;
+		z-index: 1000;
+		top: 5px;
+		left: 5px;
+	}
+
+	</style>
+	<script src="grid.js"></script>
+	<script>
+</script>
+</head>
+<body>
+<!-- livereload start -->
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+<!-- livereload end -->
+
+<section class="intro">
+	<h1>Intro</h1>
+</section>
+
+<style>
+.grid {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.blurb {
+	width: 50%;
+	border: 1px solid black;
+}
+
+.blurb__content {
+	padding-bottom: 56.5%;
+}
+</style>
+
+<div class="grid">
+	<div class="blurb" data-aspectratio="16:9">
+		<div class="blurb__content"></div>
+	</div>
+	<div class="blurb" data-aspectratio="16:9">
+		<div class="blurb__content"></div>
+	</div>
+	<div class="blurb" data-aspectratio="16:9">
+		<div class="blurb__content"></div>
+	</div>
+	<div class="blurb" data-aspectratio="16:9">
+		<div class="blurb__content"></div>
+	</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+	var gridContainer = document.querySelector('.grid')
+
+	var grid = new Grid({
+		gridContainer: gridContainer,
+		gridRelativeTo: window,
+	})
+
+	var gridController = function(e) {
+
+		if( window.innerWidth < 900 ){
+
+			if( grid.state.status && grid.state.status !== 'destroyed' ){
+				grid.destroy()
+			}
+
+		} else {
+
+			if( !grid.state.status || grid.state.status === 'destroyed' ) {
+				grid.create()
+			} else {
+				grid.resize()
+			}
+		}
+
+	}
+
+	gridController()
+
+	window.addEventListener('resize', gridController, false)
+
+})
+</script>
+</body>
+</html>
