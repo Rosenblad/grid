@@ -36,9 +36,7 @@
 			paddingTop: 5,
 			gridRelativeTo: args.gridRelativeTo,
 			paddingLeft: 2,
-			onrender: function() {
-				console.log('finished rendering')
-			},
+			onrender: function() {},
 		}
 
 		// Check for user errors in options
@@ -135,6 +133,7 @@
 			gridContainer = options.gridContainer
 			gridRelativeTo = options.gridRelativeTo
 
+			// Set base styles on the grid container
 			gridContainer.style.boxSizing = 'border-box'
 			gridContainer.style.display = 'block'
 
@@ -144,6 +143,7 @@
 				var item = gridContainer.children[i]
 
 				item.style.boxSizing = 'border-box'
+				item.style.float = 'none'
 
 				gridItems.push({
 					element: item,

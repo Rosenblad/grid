@@ -34,8 +34,20 @@
 		height: 100%;
 	}
 
+	.grid {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
 	.blurb {
 		background-color: red;
+		width: 50%;
+		border: 1px solid black;
+		float: left;
+	}
+
+	.blurb__content {
+		padding-bottom: 56.5%;
 	}
 
 	.info {
@@ -45,37 +57,32 @@
 		left: 5px;
 	}
 
+	.cf:before,
+	.cf:after {
+	    content: " ";
+	    display: table;
+	}
+	.cf:after {
+	    clear: both;
+	}
+
 	</style>
+	
+	<!--[if IE 9]>
+	<script src="ie9.js"></script>
+	<![endif]-->
 	<script src="grid.js"></script>
+
 	<script>
 </script>
 </head>
 <body>
-<!-- livereload start -->
-<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-<!-- livereload end -->
 
 <section class="intro">
 	<h1>Intro</h1>
 </section>
 
-<style>
-.grid {
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.blurb {
-	width: 50%;
-	border: 1px solid black;
-}
-
-.blurb__content {
-	padding-bottom: 56.5%;
-}
-</style>
-
-<div class="grid">
+<div class="grid cf">
 	<div class="blurb" data-aspectratio="16:9">
 		<div class="blurb__content"></div>
 	</div>
